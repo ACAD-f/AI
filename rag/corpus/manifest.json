@@ -1,0 +1,88 @@
+{
+  "repo": "deepseek-ai/deepseek-harness",
+  "ref": "master",
+  "commit": "unknown",
+  "generated_at": "2026-11-22T11:49:00+08:00",
+  "mode": "offline",
+  "source_count": 6,
+  "sources": [
+    {
+      "path": "README.md",
+      "snapshot": "rag/corpus/github_snapshot/README.md",
+      "title": "DeepSeek Harness README (en)",
+      "lang": "en",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/README.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 2673,
+      "lines": 78,
+      "sha256": "0f5516be2acde776f05572cbc8c3093c90549afe04ce118e11157d073d5d15f4",
+      "fetched_at": "2026-11-22T11:48:24+08:00"
+    },
+    {
+      "path": "README.zh.md",
+      "snapshot": "rag/corpus/github_snapshot/README.zh.md",
+      "title": "DeepSeek Harness README (zh)",
+      "lang": "zh",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/README.zh.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 3371,
+      "lines": 97,
+      "sha256": "8f19db1b217e8ef30cf413b07056cc791048bc2ba2ec51ba104e383dcfb43c61",
+      "fetched_at": "2026-11-22T11:48:24+08:00"
+    },
+    {
+      "path": "docs/architecture.md",
+      "snapshot": "rag/corpus/github_snapshot/docs__architecture.md",
+      "title": "Architecture (en)",
+      "lang": "en",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/docs/architecture.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 19135,
+      "lines": 180,
+      "sha256": "bad5cefa49a7839b6416678cbd97981f3e48902c9e523daf98f2efaf8e6df66f",
+      "fetched_at": "2026-11-22T11:48:25+08:00"
+    },
+    {
+      "path": "docs/architecture.zh.md",
+      "snapshot": "rag/corpus/github_snapshot/docs__architecture.zh.md",
+      "title": "Architecture (zh)",
+      "lang": "zh",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/docs/architecture.zh.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 18762,
+      "lines": 180,
+      "sha256": "199ff80efa97ec15a9f1b10809e12c51cbfb4584ce510e0187a1600f2a57f643",
+      "fetched_at": "2026-11-22T11:48:25+08:00"
+    },
+    {
+      "path": "docs/glossary.md",
+      "snapshot": "rag/corpus/github_snapshot/docs__glossary.md",
+      "title": "Glossary (en)",
+      "lang": "en",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/docs/glossary.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 6900,
+      "lines": 47,
+      "sha256": "7802b7cf9006783c4b5eeffb684e8d0b8d093d420b8427db095b13ac55af63bd",
+      "fetched_at": "2026-11-22T11:48:26+08:00"
+    },
+    {
+      "path": "docs/glossary.zh.md",
+      "snapshot": "rag/corpus/github_snapshot/docs__glossary.zh.md",
+      "title": "Glossary (zh)",
+      "lang": "zh",
+      "source_url": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/docs/glossary.zh.md",
+      "fetched_via": "api",
+      "commit": "unknown",
+      "bytes": 6877,
+      "lines": 47,
+      "sha256": "1ef81ecdd3cd4b920a98446b36410c27781979c683e917ced42c7ce7d22848ac",
+      "fetched_at": "2026-11-22T11:48:26+08:00"
+    }
+  ]
+}

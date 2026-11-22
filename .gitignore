@@ -1,18 +1,21 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
 
-# Other files and folders
-.settings/
+# ---- git 演练临时目录（clone 出来的「协作者」副本，不入库）----
+.git_sim/
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# ---- 系统与编辑器 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# ---- 说明 ----
+# output/ 必须入库：报告中的环境、索引规模、检索证据、git 日志都要能被核对，
+# 因此这里刻意不忽略 output/。
+# rag/corpus/github_snapshot/ 与 index.json 同样入库，保证离线也能复现检索结果。

@@ -1,0 +1,17 @@
+# 本管线只使用 Python 标准库（Python >= 3.10），无需安装任何第三方包。
+#
+# 依赖清单（none）
+#   urllib.request  - 抓取 GitHub Contents API / raw 内容
+#   base64          - 解码 API 返回的 base64 内容
+#   hashlib         - 计算语料 sha256，固定快照版本
+#   json / math     - 索引与 BM25 打分
+#   re              - 中英文分词（英文按词，中文按二元组）
+#   argparse        - ingest / index / query / answer / stats 子命令
+#
+# 环境要求：
+#   Python >= 3.10
+#   git    >= 2.34（仅 git_pull_push.sh / run_all.sh 需要）
+#   可选：conda 环境 test（scripts/conda_run.sh 优先路由到 conda run -n test python）
+#
+# 若要从零安装最小环境：
+#   conda create -n test python=3.10 -y
