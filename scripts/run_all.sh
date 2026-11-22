@@ -35,6 +35,9 @@ section() {
 
 # ------------------------------------------------------------------ 1. 环境核验
 section "1/4 环境核验"
+PY_VERSION="$(py_run -c 'import sys;print(sys.version.split()[0])' 2>/dev/null)"
+PY_EXE="$(py_run -c 'import sys;print(sys.executable)' 2>/dev/null)"
+PY_ROUTE="$(CONDA_RUN_TRACE=1 bash "$ROOT/scripts/conda_run.sh" -c 'pass' 2>&1 >/dev/null | sed -n '1s/^\[conda_run\] //p')"
 {
   echo "# 环境留档（run_all.sh 自动采集）"
   echo "collected_at : $(date -Iseconds 2>/dev/null || date)"
@@ -48,9 +51,9 @@ section "1/4 环境核验"
   else
     echo "conda        : 未安装 —— conda_run.sh 回退本地解释器"
   fi
-  echo "python       : $(py_run -c 'import sys;print(sys.version.split()[0])' 2>&1)"
-  echo "python_exe   : $(py_run -c 'import sys;print(sys.executable)' 2>&1)"
-  echo "conda_route  : $(CONDA_RUN_TRACE=1 bash "$ROOT/scripts/conda_run.sh" -c 'print("ok")' 2>&1 | tr '\n' ' ')"
+  echo "python       : $PY_VERSION"
+  echo "python_exe   : $PY_EXE"
+  echo "python_route : ${PY_ROUTE:-未知}"
 } > "$OUT/environment.txt" 2>&1
 cat "$OUT/environment.txt"
 
@@ -66,7 +69,7 @@ tail -n 8 "$OUT/rag_ingest.txt"
 
 py_run rag/rag_github.py index | tee "$OUT/rag_index.txt"
 py_run rag/rag_github.py stats | tee "$OUT/rag_stats.txt"
-py_run rag/rag_github.py stats --json > "$OUT/rag_stats.json" 2>&1 || true
+py_run rag/rag_github.py stats --json > "$OUT/rag_stats.json" 2>/dev/null || true
 
 Q_ZH="DeepSeek Harness 的架构由哪些部分组成"
 Q_EN="What is a capability seam in DeepSeek Harness?"
@@ -98,7 +101,7 @@ fi
 # ------------------------------------------------------------------ 4. 汇总
 section "4/4 汇总 FINAL_RESULT.md"
 
-STATS_LINE="$(py_run -c 'import json;m=json.load(open("output/rag_stats.json"))["meta"];print(m["files"],m["chunks"],m["vocab"],m["tokens"],m["build_ms"])' 2>/dev/null || echo "0 0 0 0 0")"
+STATS_LINE="$(py_run -c 'import json;m=json.load(open("output/rag_stats.json"));print(m["files"],m["chunks"],m["vocab"],m["tokens"],m["build_ms"])' 2>/dev/null || echo "0 0 0 0 0")"
 FILES=$(echo "$STATS_LINE" | cut -d' ' -f1)
 CHUNKS=$(echo "$STATS_LINE" | cut -d' ' -f2)
 VOCAB=$(echo "$STATS_LINE" | cut -d' ' -f3)
@@ -222,3 +225,4 @@ EOF
 
 echo "已写出：$OUT/FINAL_RESULT.md"
 echo "规模：文件 $FILES / 切片 $CHUNKS / 词项 $VOCAB"
+exit 0
