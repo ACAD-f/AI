@@ -1,0 +1,11 @@
+【检索结论】以下内容全部来自语料证据，未使用模型记忆补全。
+[判据] Top-1 得分 9.824 ≥ 阈值 1.5；证据 3 条（相对截断：得分 ≥ Top-1 的 40%）。
+
+1. 一个 **seam** 是一项可替换能力，包含三种角色：声明接口的 **Service Definition**、实现它的 **Service Provider**，以及使用它的 **Consumer**（通常是面向模型的工具）。一个包可以合并承担多个角色，但单一角色本身不是 seam；添加一项能力意味着把三者一并设计（[能力图](capability-seams.zh.md)）。 seam 正是替换一个提供方就能改变整个产品的原因。文件系统与进程提供方共享同一个执行世界，因此把它们指向远程沙箱，也就把 Bash、PTY 和 LSP 一并搬了过去，无需提供方专用 fork。
+   [来源] rag/corpus/github_snapshot/docs__architecture.zh.md#L145-L151（得分 9.824）
+2. - **seam**：一种包含三种角色的*可替换能力*：**Service Definition**（拥有自身 `ctx.<key>` 和词汇类型的 Cordis `Service`——可以是 `ShellExecutor` 这样的抽象类，也可以是 `WebRuntime` 这样的具体注册表，绝不是 TypeScript `interface`）、一个或多个 **Service Provider**，以及一个或多个注入该服务的 **Consumer**。
+   [来源] rag/corpus/github_snapshot/docs__glossary.zh.md#L8-L10（得分 7.534）
+3. - **seam** — a *swappable capability* with three roles: a **Service Definition** (the Cordis `Service` that owns its `ctx.<key>` and vocabulary types — an abstract class such as `ShellExecutor`, or a concrete registry such as `WebRuntime`, never a TypeScript `interface`), one or more **Service Providers**, and one or m…
+   [来源] rag/corpus/github_snapshot/docs__glossary.md#L8-L10（得分 4.182）
+
+[说明] 上述为抽取式回答：只摘录命中切片原句并标注行号，不做自由生成，故不会引入语料外内容。

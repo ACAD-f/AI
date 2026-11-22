@@ -1,0 +1,12 @@
+[index] rag/corpus/github_snapshot/README.md: 8 切片
+[index] rag/corpus/github_snapshot/README.zh.md: 8 切片
+[index] rag/corpus/github_snapshot/docs__architecture.md: 17 切片
+[index] rag/corpus/github_snapshot/docs__architecture.zh.md: 16 切片
+[index] rag/corpus/github_snapshot/docs__glossary.md: 8 切片
+[index] rag/corpus/github_snapshot/docs__glossary.zh.md: 7 切片
+[index] agent.md: 10 切片
+[index] AI与大数据/PROJECT_FACTS.md: 7 切片
+[index] AI与大数据/README.md: 4 切片
+[index] README.md: 8 切片
+[index] docs/GITHUB_ACCOUNT.md: 12 切片
+[index] 11 文件 / 105 切片 / 5303 词项 / 平均 113.7 tokens / 13 ms -> rag/corpus/index.json

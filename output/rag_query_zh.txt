@@ -1,0 +1,25 @@
+#1 得分 9.824  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__architecture.zh.md#L145-L151
+[标题] DeepSeek Harness 架构 > 能力 seam
+[摘录] 一个 **seam** 是一项可替换能力，包含三种角色：声明接口的 **Service Definition**、实现它的 **Service Provider**，以及使用它的 **Consumer**（通常是面向模型的工具）。一个包可以合并承担多个角色，但单一角色本身不是 seam；添加一项能力意味着把三者一并设计（[能力图](capability-seams.zh.md)）。 seam 正是替换一个提供方就能改变整个产品的原因。文件系统与进程提供方共享同一个执行世界，因此把它们指向远程沙箱，也就把 Bash、PTY 和 LSP 一并搬了过去，无需提供方专用 fork。
+
+#2 得分 7.534  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__glossary.zh.md#L8-L10
+[标题] 术语表 > capability-seam
+[摘录] - **seam**：一种包含三种角色的*可替换能力*：**Service Definition**（拥有自身 `ctx.<key>` 和词汇类型的 Cordis `Service`——可以是 `ShellExecutor` 这样的抽象类，也可以是 `WebRuntime` 这样的具体注册表，绝不是 TypeScript `interface`）、一个或多个 **Service Provider**，以及一个或多个注入该服务的 **Consumer**。
+
+#3 得分 4.182  覆盖 50%
+[来源] rag/corpus/github_snapshot/docs__glossary.md#L8-L10
+[标题] Glossary > capability-seam
+[摘录] - **seam** — a *swappable capability* with three roles: a **Service Definition** (the Cordis `Service` that owns its `ctx.<key>` and vocabulary types — an abstract class such as `ShellExecutor`, or a concrete registry such as `WebRuntime`, never a TypeScript `interface`), one or more **Service Providers**, and one or m…
+
+#4 得分 4.030  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__architecture.zh.md#L70-L84
+[标题] DeepSeek Harness 架构 > 事件
+[摘录] 事件在三个域内提供扩展点。 - **会话事件**是追加到日志并通过 `session/event` 广播的持久事实。当某个事实必须在重新加载后仍然存在时，使用它。 - **Agent 事件**（`agent/*`）携带活跃 `Agent`：inbox、步骤、状态、请求、验证、续跑。要观察或拦截进行中的工作时，使用它。 - **能力事件**无需导入循环即可向某个 seam（`fs/*`、`tools/*`、`telemetry/*`）附加策略和适配器。 Subagent Activation 拥有运行时树成员关系。
+
+#5 得分 3.529  覆盖 50%
+[来源] rag/corpus/github_snapshot/docs__architecture.md#L145-L151
+[标题] DeepSeek Harness Architecture > Capability seams
+[摘录] A **seam** is a swappable capability with three roles: a **Service Definition** declaring the interface, a **Service Provider** implementing it, and a **Consumer** using it, commonly a model-facing tool.
+

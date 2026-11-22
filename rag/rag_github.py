@@ -91,6 +91,9 @@ BM25_B = 0.75
 DEFAULT_TOP_K = 5
 DEFAULT_MIN_SCORE = 1.5
 RELATIVE_CUTOFF = 0.4  # answer 模式：低于 Top-1 得分 40% 的切片不列为证据
+HEADING_BOOST = 0.6    # 小节标题命中查询词时，按该词 IDF 加权，避免长切片盖过主题切片
+CORPUS_WEIGHT = 1.0    # GitHub 语料快照：知识本体，权重最高
+META_WEIGHT = 0.55     # 项目自身的过程文档（约束/说明/账号指南）：可检索，但不抢答
 
 RE_ASCII_TOKEN = re.compile(r"[a-z0-9][a-z0-9_\-.]*")
 RE_CJK_RUN = re.compile(r"[\u4e00-\u9fff]+")
@@ -425,6 +428,10 @@ def cmd_index(args: argparse.Namespace) -> int:
             "build_ms": elapsed_ms,
         },
         "files": [label for label, _ in docs],
+        "file_weights": {
+            label: (CORPUS_WEIGHT if label.startswith("rag/corpus/github_snapshot/") else META_WEIGHT)
+            for label, _ in docs
+        },
         "chunks": [{k: v for k, v in c.items() if k != "tokens"} | {"len": c["tokens"]} for c in chunks],
         "dl": dl,
         "idf": idf,
@@ -469,7 +476,16 @@ def bm25_search(index: dict, question: str, top_k: int) -> list[dict]:
             scores[chunk_id] += w * (tf * (k1 + 1)) / denom
             matched[chunk_id].add(term)
 
-    ranked = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
+    weights = index.get("file_weights", {})
+    q_token_set = set(q_tokens)
+    weighted_scores = {}
+    for chunk_id, score in scores.items():
+        chunk = index["chunks"][chunk_id]
+        # 标题命中加成：查询词出现在小节标题里，说明该切片就是讲这件事的。
+        heading_terms = set(tokenize(chunk["heading"])) & q_token_set
+        heading_boost = HEADING_BOOST * sum(idf[t] for t in heading_terms if t in idf)
+        weighted_scores[chunk_id] = (score + heading_boost) * weights.get(chunk["file"], 1.0)
+    ranked = sorted(weighted_scores.items(), key=lambda kv: kv[1], reverse=True)[:top_k]
     unique_terms = len(set(q_tokens))
     results = []
     for chunk_id, score in ranked:
@@ -478,6 +494,7 @@ def bm25_search(index: dict, question: str, top_k: int) -> list[dict]:
             {
                 "chunk_id": chunk_id,
                 "score": round(score, 3),
+                "raw_score": round(scores[chunk_id], 3),
                 "file": chunk["file"],
                 "heading": chunk["heading"],
                 "lines": f"L{chunk['start']}-L{chunk['end']}",
@@ -485,6 +502,7 @@ def bm25_search(index: dict, question: str, top_k: int) -> list[dict]:
                 "text": chunk["text"],
             }
         )
+    results.sort(key=lambda r: r["score"], reverse=True)
     return results
 
 

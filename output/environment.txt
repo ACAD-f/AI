@@ -1,0 +1,10 @@
+# 环境留档（run_all.sh 自动采集）
+collected_at : 2026-11-22T12:26:20+08:00
+project_root : /d/Windows/桌面/项目/ai_bigdata_rag_agent
+uname        : MINGW64_NT-10.0-26200 3.6.10-5a1665c8.x86_64 x86_64
+bash         : 5.3.15(2)-release
+git          : git version 2.56.1.windows.1
+conda        : 未安装 —— conda_run.sh 回退本地解释器
+python       : 3.12.14
+python_exe   : C:\Users\35146\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe
+python_route : 使用 PYTHON_BIN=C:\Users\35146\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe

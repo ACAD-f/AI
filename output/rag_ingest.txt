@@ -1,0 +1,7 @@
+[ingest] README.md -> rag/corpus/github_snapshot/README.md (2673 bytes, via api)
+[ingest] README.zh.md -> rag/corpus/github_snapshot/README.zh.md (3371 bytes, via api)
+[ingest] docs/architecture.md -> rag/corpus/github_snapshot/docs__architecture.md (19135 bytes, via api)
+[ingest] docs/architecture.zh.md -> rag/corpus/github_snapshot/docs__architecture.zh.md (18762 bytes, via api)
+[ingest] docs/glossary.md -> rag/corpus/github_snapshot/docs__glossary.md (6900 bytes, via api)
+[ingest] docs/glossary.zh.md -> rag/corpus/github_snapshot/docs__glossary.zh.md (6877 bytes, via api)
+[ingest] 写出 rag/corpus/manifest.json：6 个快照，commit=d98f5d685192

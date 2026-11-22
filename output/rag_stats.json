@@ -1,0 +1,15 @@
+{
+  "built_at": "2026-11-22T12:26:25+08:00",
+  "repo": "deepseek-ai/deepseek-harness",
+  "ref": "master",
+  "files": 11,
+  "chunks": 105,
+  "vocab": 5303,
+  "avgdl": 113.695,
+  "tokens": 11938,
+  "k1": 1.5,
+  "b": 0.75,
+  "chunk_target": 1200,
+  "chunk_max": 1800,
+  "build_ms": 13
+}

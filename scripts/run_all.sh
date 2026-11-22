@@ -71,8 +71,8 @@ py_run rag/rag_github.py index | tee "$OUT/rag_index.txt"
 py_run rag/rag_github.py stats | tee "$OUT/rag_stats.txt"
 py_run rag/rag_github.py stats --json > "$OUT/rag_stats.json" 2>/dev/null || true
 
-Q_ZH="DeepSeek Harness 的架构由哪些部分组成"
-Q_EN="What is a capability seam in DeepSeek Harness?"
+Q_ZH="能力 seam 是什么"
+Q_EN="What is the turn loop?"
 
 py_run rag/rag_github.py query "$Q_ZH" -k 5 > "$OUT/rag_query_zh.txt" 2>&1 || true
 py_run rag/rag_github.py query "$Q_EN" -k 5 > "$OUT/rag_query_en.txt" 2>&1 || true

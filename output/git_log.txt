@@ -1,0 +1,50 @@
+
+== 0. 前置检查 ==
+git version 2.56.1.windows.1
+远端      : https://github.com/ACAD-f/AI.git
+分支      : main
+当前提交  : 17ec520
+[提示] 工作区存在未提交改动，push 只推送已提交内容。
+
+== 1. push -u origin main（建立上游跟踪） ==
+Everything up-to-date
+branch 'main' set up to track 'origin/main'.
+origin/main
+
+== 2. clone 协作者工作副本 → .git_sim/collaborator ==
+Cloning into 'D:/Windows/桌面/项目/ai_bigdata_rag_agent/.git_sim/collaborator'...
+
+== 3. 协作者提交 ==
+[main 17c99cd] collab: 新增协作者演练记录（git_pull_push.sh 自动提交）
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+== 4. 协作者 push ==
+To https://github.com/ACAD-f/AI.git
+   17ec520..17c99cd  main -> main
+
+== 5. 主仓库 pull --ff-only ==
+From https://github.com/ACAD-f/AI
+ * branch            main       -> FETCH_HEAD
+   17ec520..17c99cd  main       -> origin/main
+Updating 17ec520..17c99cd
+Fast-forward
+ docs/COLLABORATOR_NOTE.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+== 6. 提交历史 ==
+* 17c99cd (HEAD -> main, origin/main, origin/HEAD) collab: 新增协作者演练记录（git_pull_push.sh 自动提交）
+* 17ec520 collab: 新增协作者演练记录（git_pull_push.sh 自动提交）
+* 6cedb8b fix(scripts): 修正 conda_run 解释器探测与 run_all 统计解析，避免 Windows 商店版 python 静默失败
+* 690a7e0 feat: AI与大数据 RAG Agent（双层反幻觉约束 + GitHub 语料 BM25 检索 + git 演练）
+* 020951f Add files via upload
+* 6bb398b Create AI与大数据
+* c557b90 Initial commit
+
+--- 最近提交明细（作者 / 时间 / 主题）---
+17c99cd  2026-11-22 12:26:31 +0800  RAG Collaborator  collab: 新增协作者演练记录（git_pull_push.sh 自动提交）
+17ec520  2026-11-22 12:12:23 +0800  RAG Collaborator  collab: 新增协作者演练记录（git_pull_push.sh 自动提交）
+6cedb8b  2026-11-22 12:12:03 +0800  ACAD  fix(scripts): 修正 conda_run 解释器探测与 run_all 统计解析，避免 Windows 商店版 python 静默失败
+690a7e0  2026-11-22 11:50:47 +0800  ACAD  feat: AI与大数据 RAG Agent（双层反幻觉约束 + GitHub 语料 BM25 检索 + git 演练）
+020951f  2026-11-22 11:23:08 +0800  ACAD-f  Add files via upload
+
+== 完成：push / clone / 协作者提交 / push / pull --ff-only 全流程通过 ==

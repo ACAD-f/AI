@@ -1,0 +1,7 @@
+【检索结论】以下内容全部来自语料证据，未使用模型记忆补全。
+[判据] Top-1 得分 2.285 ≥ 阈值 1.5；证据 1 条（相对截断：得分 ≥ Top-1 的 40%）。
+
+1. `bash scripts/run_all.sh` 会在 `output/` 生成： | 文件 | 内容 | | --- | --- | | `environment.txt` | bash / git / conda / python 实测版本与解释器路径 | | `rag_ingest.txt` | 6 个快照的抓取过程（commit、字节数、sha256） | | `rag_index.txt` / `rag_stats.txt` / `rag_stats.json` | 切片数、词项数、平均长度、构建耗时 | | `rag_query_zh.txt` / `rag_query_en.txt` | 中英文查询的带来源证据 |
+   [来源] README.md#L107-L122（得分 2.285）
+
+[说明] 上述为抽取式回答：只摘录命中切片原句并标注行号，不做自由生成，故不会引入语料外内容。

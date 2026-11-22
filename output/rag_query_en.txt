@@ -1,0 +1,25 @@
+#1 得分 5.792  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__architecture.md#L107-L116
+[标题] DeepSeek Harness Architecture > Turn flow
+[摘录] tools owe another request, or next-step input arrived -> claim -> next step -> agent/turn-stopping turn/end ``` `turn/*`, `step/*`, `system/message`, `user/message`, `assistant/message`, `assistant/attempt`, and `tool/*` are durable session events; the rest are live extension points across three domains.
+
+#2 得分 5.496  覆盖 50%
+[来源] rag/corpus/github_snapshot/docs__glossary.md#L36-L41
+[标题] Glossary > loop hierarchy
+[摘录] - **turn** — one drain of admitted input in a session, ending after the model and its tools stop or a terminal policy intervenes. <a id="turn"></a> - **step** — one model request plus the tool executions caused by its response; a turn contains zero or more steps. <a id="step"></a>
+
+#3 得分 5.394  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__architecture.md#L117-L122
+[标题] DeepSeek Harness Architecture > Turn flow
+[摘录] Before assembly, the loop captures Session model selection in `AssembleContext.modelSelection` and `agent/pre-step.modelSelection`; retries retain it; omitted reasoning effort uses adapter defaults.
+
+#4 得分 5.312  覆盖 100%
+[来源] rag/corpus/github_snapshot/docs__architecture.md#L153-L168
+[标题] DeepSeek Harness Architecture > Where new behavior goes
+[摘录] New behavior attaches to a documented extension point. Changing the loop itself updates this map. | Goal | Mechanism | |---|---| | Add a model provider | register its adapter on `ctx.llm` | | Add a model-facing capability | register on `ctx.tools`; its schema joins prompt assembly |
+
+#5 得分 4.273  覆盖 50%
+[来源] rag/corpus/github_snapshot/docs__architecture.md#L86-L106
+[标题] DeepSeek Harness Architecture > Turn flow
+[摘录] A **step** is one model request plus the tools it calls. A **turn** is zero or more steps: it opens before its first input is claimed and closes once nothing is owed. ```text turn/start claim next-step input plus one queued message
+
